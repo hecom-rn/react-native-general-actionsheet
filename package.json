@@ -5,7 +5,6 @@
   "description": "ActionSheet api on iOS and Android same as ActionSheetIOS.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/eslint . --ext .js",
     "patch": "npm version patch -m 'Bump version %s';git push origin master --tags",
     "minor": "npm version minor -m 'Bump version %s';git push origin master --tags"
   },
