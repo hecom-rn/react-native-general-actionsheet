@@ -23,10 +23,8 @@
     "email": "gaoxiaosong06@gmail.com"
   },
   "homepage": "https://github.com/gaoxiaosong/react-native-general-actionsheet#readme",
-  "dependencies": {
-    "react-native-safe-area-utility": "^1.0.0"
-  },
   "peerDependencies": {
+    "@hecom/react-native-pure-navigation-bar": "*",
     "react-native-root-siblings": "*"
   },
   "devDependencies": {

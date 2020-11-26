@@ -1,7 +1,11 @@
 import React from 'react';
 import { Dimensions, Modal, ScrollView, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
-import { getSafeAreaInset, isLandscape } from 'react-native-safe-area-utility';
+import { getSafeAreaInset } from "@hecom/react-native-pure-navigation-bar";
 
+function isLandscape() {
+  const { width, height } = Dimensions.get("window");
+  return width > height;
+}
 export default class extends React.PureComponent {
     static defaultProps = {
         backgroundColor: 'rgba(0, 0, 0, 0.3)',
