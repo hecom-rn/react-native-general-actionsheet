@@ -4,13 +4,21 @@ import ActionSheetContainer from './ActionSheetContainer';
 import RootSiblings from 'react-native-root-siblings';
 
 let instance = null;
+let show = false;
 
 const ActionSheet = {
     Container: ActionSheetContainer,
     useActionSheetIOS: true,
     showActionSheetWithOptions: (config, callback) => {
+        if (show) {
+            return;
+        }
         if (Platform.OS === 'ios' && ActionSheet.useActionSheetIOS) {
-            ActionSheetIOS.showActionSheetWithOptions(config, callback);
+            show = true;
+            ActionSheetIOS.showActionSheetWithOptions(config, (buttonIndex) => {
+                show = false;
+                callback && callback(buttonIndex);
+            });
             return;
         }
         if (instance) {
