@@ -1,6 +1,6 @@
 {
   "name": "@hecom-rn/react-native-general-actionsheet",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": false,
   "description": "ActionSheet api on iOS and Android same as ActionSheetIOS.",
   "main": "index.js",
