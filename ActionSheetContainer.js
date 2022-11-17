@@ -41,11 +41,11 @@ export default class extends React.PureComponent {
     }
 
     componentDidMount() {
-        Dimensions.addEventListener('change', this.onWindowChange);
+        this.changeEmitter = Dimensions.addEventListener('change', this.onWindowChange);
     }
 
     componentWillUnmount() {
-        Dimensions.removeEventListener('change', this.onWindowChange);
+        this.changeEmitter?.remove();
     }
 
     render() {
