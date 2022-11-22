@@ -25,6 +25,9 @@ export default class extends React.PureComponent {
         destructiveButtonStyle: {
             color: '#d11f1f',
         },
+        disabledButtonStyle: {
+            color: 'gray',
+        },
         cancelButtonStyle: {
             fontWeight: 'bold',
         },
@@ -129,12 +132,14 @@ export default class extends React.PureComponent {
     };
 
     _renderItem = (item, index) => {
-        const { config, destructiveButtonStyle, cancelButtonStyle, touchableUnderlayColor, fontSize, color } = this.props;
-        const { destructiveButtonIndex, cancelButtonIndex } = config;
+        const { config, destructiveButtonStyle, disabledButtonStyle, cancelButtonStyle, touchableUnderlayColor, fontSize, color } = this.props;
+        const { destructiveButtonIndex, cancelButtonIndex, disabledButtonIndices } = config;
         const isCancel = index === cancelButtonIndex;
         const isDestructive = index === destructiveButtonIndex;
+        const isDisable = disabledButtonIndices?.some((i) => i === index);
         const textStyle = isCancel ? cancelButtonStyle :
-            isDestructive ? destructiveButtonStyle : null;
+            isDestructive ? destructiveButtonStyle : 
+            isDisable ? disabledButtonStyle : null;
         return (
             <TouchableHighlight
                 key={index}
