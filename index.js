@@ -13,7 +13,7 @@ const ActionSheet = {
         if (show) {
             return;
         }
-        if (Platform.OS === 'ios' && ActionSheet.useActionSheetIOS) {
+        if (Platform.OS === 'ios' && ActionSheet.useActionSheetIOS && !config.useRootSiblings) {
             show = true;
             ActionSheetIOS.showActionSheetWithOptions(config, (buttonIndex) => {
                 show = false;
@@ -27,6 +27,7 @@ const ActionSheet = {
         instance = new RootSiblings(
             <ActionSheet.Container
                 config={config}
+                backgroundColor={config.backgroundColor}
                 callback={(index) => {
                     instance && instance.destroy(() => {
                         instance = null;
