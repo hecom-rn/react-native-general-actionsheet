@@ -33,7 +33,7 @@ const ActionSheet = {
                         instance = null;
                         setTimeout(() => {
                             callback && callback(index);
-                        }, 0);
+                        }, 100);
                     });
                 }}
             />
